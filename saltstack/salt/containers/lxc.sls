@@ -102,3 +102,8 @@ containers_lxc:
     - network_profile:
         eth0:
           link: virbr0
+
+net.ipv4.ip_forward:
+  sysctl.present:
+    - value: 1
+

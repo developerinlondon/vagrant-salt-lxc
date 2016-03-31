@@ -1,1 +1,3 @@
 .vagrant
+.snapshots
+saltstack/salt/lib/salt

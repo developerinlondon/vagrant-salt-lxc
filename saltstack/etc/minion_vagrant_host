@@ -11,9 +11,9 @@ pillar_roots:
   base:
     - /vagrant/saltstack/pillar
 
-lxc.present:
-  - template: download
-  - options:
-      dist: centos
-      release: 6
-      arch: amd64
+# lxc.present:
+#   - template: download
+#   - options:
+#       dist: centos
+#       release: 6
+#       arch: amd64

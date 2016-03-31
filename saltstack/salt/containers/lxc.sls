@@ -82,10 +82,10 @@ containers_lxc:
       - lxc
       - dnsmasq:
         - watch:
-          - file: containers
+          - file: containers_lxc
       - network:
         - watch:
-          - network: containers
+          - network: containers_lxc
 
   cloud.present:
     - names:

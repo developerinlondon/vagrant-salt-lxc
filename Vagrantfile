@@ -1,6 +1,6 @@
 Vagrant.configure('2') do |config|
   # grab Ubuntu 14.04 boxcutter image: https://atlas.hashicorp.com/boxcutter
-  config.vm.box = "geerlingguy/centos7" # centos 7
+  config.vm.box = "puppetlabs/centos-7.2-64-nocm" # centos 7
 
   # fix issues with slow dns https://www.virtualbox.org/ticket/13002
   config.vm.provider :virtualbox do |vb, override|
@@ -28,6 +28,7 @@ Vagrant.configure('2') do |config|
     salt.install_type = "git"
     salt.install_args = "v2015.8.8"
 
+    salt.colorize = true
     # Run in verbose mode, so it will output all debug info to the console.
     # This is nice to have when you are testing things out. Once you know they
     # work well you can comment this line out.

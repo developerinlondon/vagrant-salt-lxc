@@ -4,6 +4,7 @@ common_packages:
       - htop
       - strace
       - vim-enhanced
+      - traceroute
 
 /etc/vimrc:
   file.managed:

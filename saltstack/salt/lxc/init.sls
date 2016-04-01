@@ -52,6 +52,7 @@ lxc:
     - source: https://s3-eu-west-1.amazonaws.com/lxc-tarballs/centosroot.tgz
     - source_hash: md5=eabb7b95aff35810eba7ae9b3d93053f
     - mode: 600
+    - makedirs: True
 
 lxc-net.service:
   service.running:
@@ -76,7 +77,7 @@ net.ipv4.ip_forward:
   sysctl.present:
     - value: 1
 
-web2:
+web:
   lxc.present:
     - image: /vagrant/.lxc-tarballs/centosroot.tgz
     - running: True
@@ -84,11 +85,11 @@ web2:
       - file: /vagrant/.lxc-tarballs/centosroot.tgz
       - service: lxc-net.service
 
-# redis:
-#   lxc.present:
-#     - template: download
-#     - options:
-#       dist: centos
-#       release: 7
-#       arch: amd64
+redis:
+  lxc.present:
+    - image: /vagrant/.lxc-tarballs/centosroot.tgz
+    - running: True
+    - require:
+      - file: /vagrant/.lxc-tarballs/centosroot.tgz
+      - service: lxc-net.service
 

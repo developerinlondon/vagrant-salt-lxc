@@ -47,11 +47,17 @@ lxc:
     - user: root
     - group: root
 
+/vagrant/.lxc-tarballs/centosroot.tgz:
+  file.managed:
+    - source: https://www.dropbox.com/s/h9gcn67l1iv3df9/centosroot.tgz?dl=0
+    - mode: 600
+
 lxc-net.service:
   service.running:
     - enable: True
     - require:
       - file: /etc/systemd/system/lxc-net.service
+
 
 lxc-dhcp.service:
   service.running:
@@ -84,7 +90,7 @@ net.ipv4.ip_forward:
 
 web2:
   lxc.present:
-    - image: /vagrant/.snapshots/centosroot.tgz
+    - image: /vagrant/.lxc-tarballs/centosroot.tgz
     - running: True
     - require:
       - file: /vagrant/.lxc-tarballs/centosroot.tgz

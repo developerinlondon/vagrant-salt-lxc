@@ -1,12 +1,10 @@
 ## Look locally for files
 file_client: local
 
-## Where your salt states & files are located
 file_roots:
   base:
     - /vagrant/saltstack/salt
 
-## Where your Pillar data is located (see README.md for more details)
 pillar_roots:
   base:
     - /vagrant/saltstack/pillar
@@ -18,20 +16,6 @@ lxc.container_profile:
 
 lxc.network_profile:
   lxc-default:
-#  centos:
     eth0:
       link: lxcbr0
       flags: up
-# lxc.network_profile:
-#   lxc-default:
-#     eth0:
-#       link: lxcbr0
-#       type: veth
-#       flags: up
-
-# lxc.present:
-#   - template: download
-#   - options:
-#       dist: centos
-#       release: 6
-#       arch: amd64

@@ -40,37 +40,40 @@ lxc:
     - user: root
     - group: root
 
-/usr/lib/python2.7/site-packages/salt/templates/lxc/salt_tarball:
+SaltTarball:
   file.managed:
+    - name: /usr/lib/python2.7/site-packages/salt/templates/lxc/salt_tarball
     - source: salt://lib/salt_tarball
     - mode: 755
     - user: root
     - group: root
 
-/vagrant/.lxc-tarballs/centosroot.tgz:
-  file.managed:
-    - source: https://s3-eu-west-1.amazonaws.com/lxc-tarballs/centosroot.tgz
-    - source_hash: md5=eabb7b95aff35810eba7ae9b3d93053f
-    - mode: 600
-    - makedirs: True
+CentosTarball:
+  cmd.run:
+    - name: wget https://s3-eu-west-1.amazonaws.com/lxc-tarballs/centosroot.tgz -O /vagrant/.lxc-tarballs/centosroot.tgz
+    - creates: /vagrant/.lxc-tarballs/centosroot.tgz
+    - stateful: True
 
 lxc-net.service:
   service.running:
     - enable: True
-    - require:
+    - reload: True
+    - watch:
       - file: /etc/systemd/system/lxc-net.service
 
 
 lxc-dhcp.service:
   service.running:
     - enable: True
-    - require:
+    - reload: True
+    - watch:
       - file: /etc/systemd/system/lxc-dhcp.service
 
 iptables:
   service.running:
     - enable: True
-    - require:
+    - reload: True
+    - watch:
       - file: /etc/sysconfig/iptables
 
 net.ipv4.ip_forward:
@@ -82,7 +85,7 @@ web:
     - image: /vagrant/.lxc-tarballs/centosroot.tgz
     - running: True
     - require:
-      - file: /vagrant/.lxc-tarballs/centosroot.tgz
+      - cmd: CentosTarball
       - service: lxc-net.service
 
 redis:
@@ -90,6 +93,6 @@ redis:
     - image: /vagrant/.lxc-tarballs/centosroot.tgz
     - running: True
     - require:
-      - file: /vagrant/.lxc-tarballs/centosroot.tgz
+      - cmd: CentosTarball
       - service: lxc-net.service
 

@@ -5,6 +5,7 @@ common_packages:
       - strace
       - vim-enhanced
       - traceroute
+      - awscli
 
 /etc/vimrc:
   file.managed:
@@ -12,3 +13,5 @@ common_packages:
     - mode: 644
     - user: root
     - group: root
+    - require:
+      - pkg: vim-enhanced

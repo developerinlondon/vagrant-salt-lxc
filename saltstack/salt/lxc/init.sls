@@ -49,7 +49,8 @@ lxc:
 
 /vagrant/.lxc-tarballs/centosroot.tgz:
   file.managed:
-    - source: https://www.dropbox.com/s/h9gcn67l1iv3df9/centosroot.tgz?dl=0
+    - source: https://s3-eu-west-1.amazonaws.com/lxc-tarballs/centosroot.tgz
+    - source_hash: md5=eabb7b95aff35810eba7ae9b3d93053f
     - mode: 600
 
 lxc-net.service:
@@ -71,22 +72,9 @@ iptables:
     - require:
       - file: /etc/sysconfig/iptables
 
-# lxc.create:
-#   container1:
-#     - profile: centos
-#     - network_profile: centos 
-#     - nic_opts: '{eth0: {ipv4: 10.0.3.0/24, gateway: 10.0.3.1}}'
-
 net.ipv4.ip_forward:
   sysctl.present:
     - value: 1
-
-# lxc.network_profile:
-#   lxc-default:
-#     eth0:
-#       link: lxcbr0
-#       type: veth
-#       flags: up
 
 web2:
   lxc.present:

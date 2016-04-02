@@ -96,3 +96,18 @@ redis:
       - cmd: CentosTarball
       - service: lxc-net.service
 
+# cloud.present:
+#   - names:
+#     - c7m1
+#     - c7m2
+#     - c7m3
+#     - c7m4
+#   - running: True
+#   - cloud_provider: mylxc
+#   - lxc_profile:
+#       template: centos
+#       options:
+#         release: 7
+#   - network_profile:
+#       eth0:
+#         link: virbr0

@@ -1,3 +1,3 @@
 include:
   - common.packages
-  - common.salt-master
+  - common.salt

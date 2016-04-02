@@ -6,6 +6,7 @@ common_packages:
       - vim-enhanced
       - traceroute
       - awscli
+#      - ufw
 
 /etc/vimrc:
   file.managed:

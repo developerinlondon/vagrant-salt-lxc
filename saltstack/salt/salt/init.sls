@@ -7,6 +7,13 @@ salt_packages:
       - salt-ssh
       - salt-syndic
 
+/etc/salt/master:
+  file.managed:
+    - source: salt://salt/files/master.yaml
+    - mode: 640
+    - user: root
+    - group: root
+
 salt-master-service:
   service.running:
     - name: salt-master
@@ -14,6 +21,7 @@ salt-master-service:
     - reload: True
     - watch:
       - pkg: salt-master
+      - file: /etc/salt/master
     - require:
       - pkg: salt-master
 
@@ -26,15 +34,3 @@ salt-minion-service:
       - pkg: salt-minion
     - require:
       - pkg: salt-minion
-
-
-Accept VM Minion Key:
-  cmd.run:
-    - name: salt-key -a 'vm.ad.here.com' -y
-    - creates: /etc/salt/pki/master/minions/vm.ad.here.com
-    - watch:
-      - service: salt-minion
-      - service: salt-master
-    - require:
-      - service: salt-minion
-      - service: salt-master

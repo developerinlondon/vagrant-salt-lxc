@@ -13,7 +13,7 @@ Vagrant.configure('2') do |config|
   config.vm.provision :salt do |salt|
     # Relative location of configuration file to use for minion
     # since we need to tell our minion to run in masterless mode
-    salt.minion_config = "saltstack/etc/minion_vagrant_host"
+    salt.minion_config = "saltstack/etc/minion_vagrant.yaml"
 
     # On provision, run state.highstate (which installs packages, services, etc).
     # Highstate basicly means "comapre the VMs current machine state against 

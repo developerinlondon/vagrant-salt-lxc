@@ -54,6 +54,20 @@ CentosTarball:
     - creates: /vagrant/.lxc-tarballs/centosroot.tgz
     - stateful: True
 
+/etc/salt/cloud.profiles.d/lxc.conf:
+  file.managed:
+    - source: salt://lxc/files/lxc_profile.conf
+    - mode: 644
+    - user: root
+    - group: root
+
+/etc/salt/cloud.providers.d/lxc.conf:
+  file.managed:
+    - source: salt://lxc/files/lxc_provider.conf
+    - mode: 644
+    - user: root
+    - group: root
+
 lxc-net.service:
   service.running:
     - enable: True
@@ -95,6 +109,26 @@ redis:
     - require:
       - cmd: CentosTarball
       - service: lxc-net.service
+
+# lxc.bootstrap:
+#   web:
+#     install: True
+
+# myfancylxc:
+#   cloud.profile:
+#     - profile: mylxc_profile
+#     - minion:
+#       # where will be your master located on the lxc point of view
+#       - master: 10.0.3.1
+#       - master_port: 4506
+
+# c7:
+#   cloud.present:
+#     - running: True
+#     - cloud_provider: mylxc_provider
+#     - lxc_profile:
+#  #     name: mylxc
+#       template: /usr/lib/python2.7/site-packages/salt/templates/lxc/salt_tarball  -- -p /vagrant/.lxc-tarballs/centosroot.tgz
 
 # cloud.present:
 #   - names:

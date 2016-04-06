@@ -3,6 +3,10 @@ worker_threads: 3
 
 interface: 0.0.0.0
 
+file_roots:
+  base:
+    - /vagrant/saltstack/salt
+
 pidfile: /var/run/salt-master.pid
 timeout: 10
 loop_interval: 30

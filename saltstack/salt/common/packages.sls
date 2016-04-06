@@ -6,7 +6,15 @@ common_packages:
       - vim-enhanced
       - traceroute
       - awscli
+      - strace
+      - wget
+      - gdb
 #      - ufw
+
+
+development-tools:
+  pkg.group_installed:
+    - name: 'Development Tools'
 
 /etc/vimrc:
   file.managed:
@@ -16,3 +24,16 @@ common_packages:
     - group: root
     - require:
       - pkg: vim-enhanced
+
+epel:
+  pkg.installed:
+    - sources:
+      - epel-release: /vagrant/saltstack/salt/lib/epel-release-7-5.noarch.rpm
+
+update-packages:
+  cmd.run:
+    - name: yum update -y
+
+upgrade-packages:
+  cmd.run:
+    - name: yum upgrade -y

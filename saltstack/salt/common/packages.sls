@@ -11,7 +11,6 @@ common_packages:
       - gdb
 #      - ufw
 
-
 development-tools:
   pkg.group_installed:
     - name: 'Development Tools'
@@ -32,8 +31,10 @@ epel:
 
 update-packages:
   cmd.run:
-    - name: yum update -y
+    - name: yum update -y && touch /tmp/yum-update
+    - creates: /tmp/yum-update
 
 upgrade-packages:
   cmd.run:
-    - name: yum upgrade -y
+    - name: yum upgrade -y && touch /tmp/yum-upgrade
+    - creates: /tmp/yum-update

@@ -6,13 +6,13 @@ install-lxc:
         wget -c http://linuxcontainers.org/downloads/lxc-1.1.5.tar.gz
         tar vxzf lxc-1.1.5.tar.gz
         cd lxc-1.1.5
-        ./configure --prefix=/opt/lxc --bindir=/usr/local/bin --sbindir=/usr/sbin --sysconfdir=/etc
+        ./configure --prefix=/opt/lxc --bindir=/usr/bin --localstatedir=/var --sbindir=/usr/sbin --sysconfdir=/etc
         make
         make install
     - cwd: /tmp
     - shell: /bin/bash
     - timeout: 300
-    - unless: test -x /opt/lxc/bin/lxc-info
+    - creates: /usr/bin/lxc-info
 
 /etc/profile.d/lxc.sh:
   file.managed:

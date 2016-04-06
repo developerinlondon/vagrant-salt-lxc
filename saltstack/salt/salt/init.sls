@@ -34,3 +34,6 @@ salt-minion-service:
       - pkg: salt-minion
     - require:
       - pkg: salt-minion
+
+include:
+  - salt.cloud

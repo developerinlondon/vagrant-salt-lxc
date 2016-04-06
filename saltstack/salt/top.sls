@@ -2,9 +2,9 @@ base:
   'vagranthost':
     - common
     - salt
-#    - containers
     - lxc
+
   'redis':
-    - redis
+    - container_redis
   'web':
-    - nginx
+    - container_web

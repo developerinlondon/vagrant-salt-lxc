@@ -4,6 +4,8 @@
     - mode: 644
     - user: root
     - group: root
+    - require:
+      - pkg: salt-cloud
 
 /etc/salt/cloud.providers.d/lxc.conf:
   file.managed:
@@ -11,6 +13,5 @@
     - mode: 644
     - user: root
     - group: root
-
-# cloud.present:
-#   - name: c7
+    - require:
+      - pkg: salt-cloud

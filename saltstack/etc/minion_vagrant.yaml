@@ -12,11 +12,16 @@ pillar_roots:
     - /vagrant/saltstack/pillar
 
 lxc.container_profile:
-  centos:
+  default_container_profile:
     template: centos
 
 lxc.network_profile:
-  lxc-default:
+  default_network_profile:
     eth0:
       link: lxcbr0
       flags: up
+
+lxc.minion_profile:
+  default_minion_profile:
+    master: 10.0.2.15
+    master_port: 4506

@@ -19,6 +19,8 @@ Vagrant.configure('2') do |config|
     # Highstate basicly means "comapre the VMs current machine state against 
     # what it should be and make changes if necessary".
     salt.run_highstate = true
+    salt.install_master = true
+    salt.install_syndic = true
 
     # What version of salt to install, and from where.
     # Because by default it will install the latest, its better to explicetly
@@ -26,7 +28,7 @@ Vagrant.configure('2') do |config|
 
     # I also prefer to install from git so I can specify a version.
     salt.install_type = "git"
-    salt.install_args = "v2015.8.8"
+    salt.install_args = "v2016.3.0rc2"
 
     salt.colorize = true
     # Run in verbose mode, so it will output all debug info to the console.

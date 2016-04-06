@@ -1,5 +1,4 @@
-redis_packages:
+web_packages:
   pkg.installed:
     - names:
-      - redis
       - nginx

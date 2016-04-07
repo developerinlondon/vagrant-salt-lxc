@@ -14,6 +14,19 @@ salt_packages:
     - user: root
     - group: root
 
+/etc/salt/minion:
+  file.managed:
+    - source: /vagrant/saltstack/etc/minion_vagrant.yaml
+    - mode: 640
+    - user: root
+    - group: root
+
+/etc/salt/minion.d:
+  file.recurse:
+    - source: salt://salt/files/minion.d
+    - user: root
+    - group: root
+
 salt-master-service:
   service.running:
     - name: salt-master
@@ -22,18 +35,23 @@ salt-master-service:
     - watch:
       - pkg: salt-master
       - file: /etc/salt/master
+   #   - cloud: development-stack
     - require:
       - pkg: salt-master
+  #    - cloud: development-stack
 
-salt-minion-service:
-  service.running:
-    - name: salt-minion
-    - enable: True
-    - reload: True
-    - watch:
-      - pkg: salt-minion
-    - require:
-      - pkg: salt-minion
+# salt-minion-service:
+#   service.running:
+#     - name: salt-minion
+#     - enable: True
+#     - reload: True
+#     - watch:
+#       - pkg: salt-minion
+#       - file: /etc/salt/minion
+#       - file: /etc/salt/minion.d/*.conf
+#     - require:
+#       - pkg: salt-minion
 
 include:
   - salt.cloud
+  - salt.watchers

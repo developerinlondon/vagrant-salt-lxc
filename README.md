@@ -4,11 +4,11 @@ LXC Service
 RUN `vagrant up` to get a basic vagrant box running centos 6.6 and has salt and lxc installed inside it.
 
 inside vagrant run the following to reload stack:
-`salt-call --local state.apply`
+`salt-call state.highstate`
 
-How to Create a New LXC Image
------------------------------
+checking event horizon:
 
+`salt-run state.event pretty=true`
 
 
 References:
@@ -26,3 +26,4 @@ salt cloud: http://makina-corpus.com/blog/metier/2014/salt-cloud-can-now-spawn-l
 
 salt beacon - https://docs.saltstack.com/en/latest/ref/beacons/all/index.html#all-salt-beacons
 salt reactor - https://docs.saltstack.com/en/latest/topics/reactor/
+

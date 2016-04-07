@@ -52,6 +52,7 @@ development-stack:
     - minion:
        master: 10.0.2.15
        master_port: 4506
+       hash_type: sha256
     - require:
       - file: hacked_lxc_py
       - environ: lxc_env

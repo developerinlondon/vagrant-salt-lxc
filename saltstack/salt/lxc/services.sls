@@ -18,10 +18,14 @@ lxc-net.service:
     - reload: True
     - watch:
       - file: /etc/systemd/system/lxc-net.service
+    - require:
+      - file: /etc/systemd/system/lxc-net.service
 
 lxc-dhcp.service:
   service.running:
     - enable: True
     - reload: True
     - watch:
+      - file: /etc/systemd/system/lxc-dhcp.service
+    - require:
       - file: /etc/systemd/system/lxc-dhcp.service

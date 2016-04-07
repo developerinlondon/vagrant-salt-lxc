@@ -11,3 +11,5 @@ iptables:
     - reload: True
     - watch:
       - file: /etc/sysconfig/iptables
+    - require:
+      - file: /etc/sysconfig/iptables

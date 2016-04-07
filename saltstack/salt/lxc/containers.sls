@@ -60,3 +60,4 @@ development-stack:
       - service: lxc-net.service
       - service: lxc-dhcp.service
       - service: iptables
+      - service: salt-master

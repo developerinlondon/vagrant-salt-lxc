@@ -30,12 +30,12 @@ epel:
     - sources:
       - epel-release: /vagrant/saltstack/salt/lib/epel-release-7-5.noarch.rpm
 
-# update-packages:
-#   cmd.run:
-#     - name: yum update -y && touch /tmp/yum-update
-#     - creates: /tmp/yum-update
+update-packages:
+  cmd.run:
+    - name: yum update -y && touch /tmp/yum-update
+    - creates: /tmp/yum-update
 
-# upgrade-packages:
-#   cmd.run:
-#     - name: yum upgrade -y && touch /tmp/yum-upgrade
-#     - creates: /tmp/yum-update
+upgrade-packages:
+  cmd.run:
+    - name: yum upgrade -y && touch /tmp/yum-upgrade
+    - creates: /tmp/yum-update

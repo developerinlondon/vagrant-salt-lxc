@@ -1,3 +1,13 @@
+Quickstart
+----------
+
+1. clone this repo.
+2. run `vagrant up` (will take approx 15 mins to spin up a vagrant box with a web and a redis container inside it)
+3. `vagrant ssh`
+4. `sudo su`
+5. run `lxc-ls` to see the containers that are running preconfigured.
+6. run `lxc-attach -n web` to get inside the web container.
+
 LXC Service
 -----------
 

@@ -16,8 +16,8 @@ Vagrant.configure('2') do |config|
     salt.install_type = "git"
     salt.install_args = "v2015.8.8"
     salt.colorize = true
-    salt.verbose = true
+    salt.verbose = false
   end
 
-  config.vm.provision "shell", inline: "sudo salt '*' state.highstate"
+ # config.vm.provision "shell", inline: "sudo salt '*' state.highstate"
 end

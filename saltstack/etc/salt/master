@@ -13,7 +13,7 @@ loop_interval: 30
 
 auto_accept: True
 open_mode: True
-hash_type: SHA25
+#hash_type: SHA256
 
 # reactor:
 #   - salt/beacon/*/inotify/*/

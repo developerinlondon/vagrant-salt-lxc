@@ -1,31 +1,36 @@
 ## Look locally for files
 #file_client: local
-master: localhost
+#master: localhost
+master: 127.0.0.1
 
-id: vagranthost
+#log_fmt_console: '%(colorlevel)s %(colormsg)s'
+
+id: 2usvretzer.ad.here.com
 
 file_roots:
   base:
     - /vagrant/saltstack/salt
 
+startup_states: 'highstate'
+
 pillar_roots:
   base:
     - /vagrant/saltstack/pillar
 
-lxc.container_profile:
-  default_container_profile:
-    template: centos
+# lxc.container_profile:
+#   default_container_profile:
+#     template: centos
 
-lxc.network_profile:
-  default_network_profile:
-    eth0:
-      link: lxcbr0
-      flags: up
+# lxc.network_profile:
+#   default_network_profile:
+#     eth0:
+#       link: lxcbr0
+#       flags: up
 
-lxc.minion_profile:
-  default_minion_profile:
-    master: 10.0.2.15
-    master_port: 4506
+# lxc.minion_profile:
+#   default_minion_profile:
+#     master: 10.0.2.15
+#     master_port: 4506
 
-hash_type: sha256
+#hash_type: sha256
 

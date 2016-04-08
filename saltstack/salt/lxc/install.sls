@@ -3,12 +3,12 @@ install-lxc:
   cmd.run:
     - name: |
         cd /tmp
-        wget -c http://linuxcontainers.org/downloads/lxc-1.1.5.tar.gz
-        tar vxzf lxc-1.1.5.tar.gz
+        wget --quiet -c http://linuxcontainers.org/downloads/lxc-1.1.5.tar.gz
+        tar xzf lxc-1.1.5.tar.gz
         cd lxc-1.1.5
-        ./configure --prefix=/opt/lxc --bindir=/usr/bin --localstatedir=/var --sbindir=/usr/sbin --sysconfdir=/etc
-        make
-        make install
+        ./configure --prefix=/opt/lxc --bindir=/usr/bin --localstatedir=/var --sbindir=/usr/sbin --sysconfdir=/etc > /var/log/configure.lxc-install
+        make  > /var/log/make.lxc-install
+        make install > /var/log/make-install.lxc-install
     - cwd: /tmp
     - shell: /bin/bash
     - timeout: 300

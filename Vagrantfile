@@ -7,17 +7,19 @@ Vagrant.configure('2') do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
   end
 
-  #config.vm.synced_folder "saltstack", "/saltstack"
-
+  config.vm.synced_folder "saltstack/etc/salt", "/etc/salt"
+  config.vm.synced_folder "saltstack/salt", "/srv/salt"
+  config.vm.provision :shell, inline: "touch /tmp/disable_salt_checks"
   # Salt Provisioner
   config.vm.provision :salt do |salt|
+    salt.install_master = true
+   # salt.install_syndic = true
     salt.minion_config = "saltstack/etc/minion_vagrant.yaml"
-    salt.run_highstate = true
+    #salt.run_highstate = true
     salt.install_type = "git"
     salt.install_args = "v2015.8.8"
+    #salt.bootstrap_options = '-d'
     salt.colorize = true
-    salt.verbose = false
+    salt.verbose = true
   end
-
- # config.vm.provision "shell", inline: "sudo salt '*' state.highstate"
 end

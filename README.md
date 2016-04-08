@@ -37,3 +37,6 @@ salt cloud: http://makina-corpus.com/blog/metier/2014/salt-cloud-can-now-spawn-l
 salt beacon - https://docs.saltstack.com/en/latest/ref/beacons/all/index.html#all-salt-beacons
 salt reactor - https://docs.saltstack.com/en/latest/topics/reactor/
 
+fix to implement:
+-----------------
+https://github.com/saltstack/salt/commit/559eb7da520953ef54adf6b779fe959e39d94d92

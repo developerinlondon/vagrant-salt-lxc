@@ -1,3 +1,9 @@
 .vagrant
 .lxc-tarballs
 saltstack/salt/lib/salt
+#saltstack/etc/salt/*.d
+saltstack/etc/salt/pki
+saltstack/etc/salt/cloud
+saltstack/etc/salt/*.rpmnew
+saltstack/etc/salt/proxy
+saltstack/etc/salt/roster

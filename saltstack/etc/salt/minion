@@ -34,3 +34,8 @@ pillar_roots:
 
 #hash_type: sha256
 
+mysql.host: 'localhost'
+mysql.user: 'salt'
+mysql.pass: 'salt'
+mysql.db: 'salt'
+mysql.port: 3306

@@ -7,5 +7,8 @@ mount vagrant inside containers:
     - fstype: bindfs
     - mkmnt: True
     - opts:
+      - relative
       - bind
+      - rw
       - create=dir
+      - nodev

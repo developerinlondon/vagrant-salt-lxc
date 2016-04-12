@@ -40,3 +40,8 @@ salt reactor - https://docs.saltstack.com/en/latest/topics/reactor/
 fix to implement:
 -----------------
 https://github.com/saltstack/salt/commit/559eb7da520953ef54adf6b779fe959e39d94d92
+
+Tunnel to expose the dashboard to port 8000:
+--------------------------------------------
+
+`ssh -f vagrant@localhost -p2200 -lvagrant -i .vagrant/machines/default/virtualbox/private_key -L 8000:localhost:8000 -N`

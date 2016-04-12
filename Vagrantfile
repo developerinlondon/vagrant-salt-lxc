@@ -2,7 +2,10 @@ Vagrant.configure('2') do |config|
   # grab Ubuntu 14.04 boxcutter image: https://atlas.hashicorp.com/boxcutter
   config.vm.box = "puppetlabs/centos-7.2-64-nocm" # centos 7
   config.vm.hostname = "vagranthost"
-  
+
+  # used by salt-dashboard  
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+
   # fix issues with slow dns https://www.virtualbox.org/ticket/13002
   config.vm.provider :virtualbox do |vb, override|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]

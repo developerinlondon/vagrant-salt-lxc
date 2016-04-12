@@ -3,7 +3,7 @@ base:
     - common
     - salt
     - lxc
-
+    - dashboard
   'redis':
     - common
     - container_redis

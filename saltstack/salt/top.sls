@@ -1,5 +1,5 @@
 base:
-  '2usvretzer.ad.here.com':
+  'vagranthost':
     - common
     - salt
     - lxc

@@ -6,17 +6,6 @@ lxc_env:
         LD_LIBRARY_PATH: $LD_LIBRARY_PATH:/opt/lxc/lib
     - update_minion: True
 
-# this is needed for line 120 as per https://github.com/saltstack/salt/pull/25231/files
-# this can be taken out on a newer release of salt where they add this update.
-# but without this the containers wont bootstrap with salt.
-hacked_lxc_py:
-  file.managed:
-    - name: /usr/lib/python2.7/site-packages/salt/modules/lxc.py
-    - source: salt://lib/lxc.py
-    - mode: 755
-    - user: root
-    - group: root
-
 development-stack:
   cloud.present:
     - names:
@@ -25,6 +14,7 @@ development-stack:
     - cloud_provider: mylxc_provider
     - lxc_profile:
         template: centos
+
     - network_profile:
         eth0:
           link: lxcbr0
@@ -34,7 +24,7 @@ development-stack:
        hash_type: sha256
        startup_states: 'highstate'
     - require:
-      - file: hacked_lxc_py
+      - file: patched_lxc_py
       - environ: lxc_env
 #       - cmd: centos_tarball
       - service: lxc-net.service

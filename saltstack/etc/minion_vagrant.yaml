@@ -5,7 +5,7 @@ master: 127.0.0.1
 
 #log_fmt_console: '%(colorlevel)s %(colormsg)s'
 
-id: 2usvretzer.ad.here.com
+id: vagranthost
 
 file_roots:
   base:

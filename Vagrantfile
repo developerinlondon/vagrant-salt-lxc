@@ -9,8 +9,10 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.synced_folder "saltstack/etc/salt", "/etc/salt"
-  config.vm.synced_folder "saltstack/salt", "/srv/salt"
+  config.vm.synced_folder "saltstack/pillar", "/srv/pillar"
+  
   config.vm.provision :shell, inline: "touch /tmp/disable_salt_checks"
+  
   # Salt Provisioner
   config.vm.provision :salt do |salt|
     salt.install_master = true

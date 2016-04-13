@@ -1,16 +1,11 @@
+epel:
+  pkg.installed:
+    - sources:
+      - epel-release: /vagrant/saltstack/salt/lib/epel-release-7-5.noarch.rpm
+
 common_packages:
   pkg.installed:
-    - names:
-      - htop
-      - strace
-      - vim-enhanced
-      - traceroute
-      - awscli
-      - strace
-      - wget
-      - gdb
-      - nmap-ncat
-#      - ufw
+    - names: {{ pillar['packages'] }}
 
 development-tools:
   pkg.group_installed:
@@ -24,9 +19,3 @@ development-tools:
     - group: root
     - require:
       - pkg: vim-enhanced
-
-epel:
-  pkg.installed:
-    - sources:
-      - epel-release: /vagrant/saltstack/salt/lib/epel-release-7-5.noarch.rpm
-

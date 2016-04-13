@@ -8,9 +8,7 @@ lxc_env:
 
 development-stack:
   cloud.present:
-    - names:
-      - redis
-      - web
+    - names: {{ pillar['containers'] }}
     - cloud_provider: mylxc_provider
     - lxc_profile:
         template: centos

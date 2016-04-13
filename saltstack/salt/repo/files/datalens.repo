@@ -1,0 +1,7 @@
+[datalens]
+name=<%= @s3_repo_desc %>
+baseurl=https://<%= @s3_repo_name %>.s3-eu-west-1.amazonaws.com
+enabled=1
+gpgcheck=0
+s3_enabled=1
+metadata_expire=1

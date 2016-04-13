@@ -28,4 +28,5 @@ development-stack:
       - service: lxc-net.service
       - service: lxc-dhcp.service
       - service: iptables
+      - mount: 'mount /vagrant inside containers'
 #     - service: salt-master

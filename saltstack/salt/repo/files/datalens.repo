@@ -1,6 +1,6 @@
 [datalens]
-name=<%= @s3_repo_desc %>
-baseurl=https://<%= @s3_repo_name %>.s3-eu-west-1.amazonaws.com
+name={{ pillar['s3_repo']['desc'] }}
+baseurl=https://{{ pillar['s3_repo']['name'] }}.s3-eu-west-1.amazonaws.com
 enabled=1
 gpgcheck=0
 s3_enabled=1

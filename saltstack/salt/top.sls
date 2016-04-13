@@ -8,3 +8,4 @@ base:
     - container_redis
   'container_web':
     - container_web
+    - repo

@@ -2,6 +2,7 @@
   file.managed:
     - source: salt://repo/files/nokia-s3yum.conf
     - mode: 644
+    - template: jinja
 
 /usr/lib/yum-plugins/nokia-s3yum.py:
   file.managed:
@@ -12,3 +13,4 @@
   file.managed:
     - source: salt://repo/files/datalens.repo
     - mode: 644
+    - template: jinja

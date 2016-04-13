@@ -1,4 +1,4 @@
-mount vagrant inside containers:
+mount /vagrant inside containers:
   mount.mounted:
     - names:
       - /var/lib/lxc/container_redis/rootfs/vagrant
@@ -6,6 +6,6 @@ mount vagrant inside containers:
     - device: /vagrant
     - fstype: bindfs
     - mkmnt: True
+    - persist: False
     - opts:
       - bind
-      - create=dir

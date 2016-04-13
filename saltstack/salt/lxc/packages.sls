@@ -1,4 +1,3 @@
-
 lxc-requisites:
   pkg.latest:
     - pkgs:

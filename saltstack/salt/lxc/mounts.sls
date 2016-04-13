@@ -1,8 +1,9 @@
 mount /vagrant inside containers:
   mount.mounted:
     - names:
-      - /var/lib/lxc/container_redis/rootfs/vagrant
-      - /var/lib/lxc/container_web/rootfs/vagrant
+      {% for container in pillar.get('containers', []) %}
+      - /var/lib/lxc/{{ container }}/rootfs/vagrant
+      {% endfor %}
     - device: /vagrant
     - fstype: bindfs
     - mkmnt: True

@@ -7,3 +7,4 @@ packages:
   - salt-ssh
   - salt-syndic
   - salt-api
+  - nginx

@@ -17,5 +17,3 @@ open_mode: True
 
 # reactor:
 #   - salt/beacon/*/inotify/*/
-
-pillar_merge_lists: True

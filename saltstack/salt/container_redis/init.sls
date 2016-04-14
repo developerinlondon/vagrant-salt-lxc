@@ -1,4 +1,4 @@
-redis_packages:
-  pkg.installed:
-    - names:
-      - redis
+# redis_packages:
+#   pkg.installed:
+#     - names:
+#       - redis

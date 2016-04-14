@@ -1,4 +1,4 @@
-web_packages:
-  pkg.installed:
-    - names:
-      - nginx
+# web_packages:
+#   pkg.installed:
+#     - names:
+#       - nginx

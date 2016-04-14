@@ -45,3 +45,12 @@ salt-formula - for compartmentalizing salt states.
 fix to implement:
 -----------------
 https://github.com/saltstack/salt/commit/559eb7da520953ef54adf6b779fe959e39d94d92
+
+example vagrant tunnel:
+-----------------------
+ ssh vagrant@127.0.0.1 -p 2200 -o Compression=yes -o DSAAuthentication=yes -o LogLevel=FATAL -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i /Users/meex_syen/code/here/lxc/.vagrant/machines/default/virtualbox/private_key -L 8080:localhost:81 -N
+
+saltpad:
+--------
+formula - https://github.com/tinyclues/saltpad/tree/saltpad_v2/vagrant/salt/roots/salt
+

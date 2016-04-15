@@ -8,3 +8,4 @@ packages:
   - salt-syndic
   - salt-api
   - nginx
+  - supervisor

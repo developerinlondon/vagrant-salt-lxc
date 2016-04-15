@@ -13,6 +13,8 @@ Vagrant.configure('2') do |config|
   
   config.vm.provision :shell, inline: "touch /tmp/disable_salt_checks"
   
+  config.ssh.forward_agent = true
+
   # Salt Provisioner
   config.vm.provision :salt do |salt|
     salt.install_master = true

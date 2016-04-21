@@ -1,0 +1,11 @@
+[Unit]
+Requires=lxc-dhcp.service
+Requires=sys-devices-virtual-net-lxcbr0.device
+After=sys-devices-virtual-net-lxcbr0.device
+
+[Service]
+ExecStart=/bin/su - vagrant /bin/ssh -N redshift-dev
+Restart=on-abort
+
+[Install]
+WantedBy=default.target

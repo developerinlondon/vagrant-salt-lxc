@@ -9,3 +9,6 @@ packages:
   - wget
   - gdb
   - nmap-ncat
+  - telnet
+  - bind-utils
+  - lsof

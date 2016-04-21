@@ -4,7 +4,7 @@ base:
   'vagranthost':
     - salt
     - lxc
-#    - ssh-config
+    - ssh_config
 #    - gitfs
   'container_redis':
     - container_redis

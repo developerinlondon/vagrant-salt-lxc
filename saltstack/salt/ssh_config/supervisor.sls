@@ -14,12 +14,6 @@ supervisor_tunnels:
       - file: vagrant_ssh_conf
       - pkg: supervisor
 
-sudoers:
-  file.managed:
-    - name: /etc/sudoers
-    - source: salt://ssh_config/files/sudoers
-    - makedirs: True
-
 supervisor_config:
   file.managed:
     - name: /etc/supervisord.conf

@@ -4,7 +4,8 @@ Requires=sys-devices-virtual-net-lxcbr0.device
 After=sys-devices-virtual-net-lxcbr0.device
 
 [Service]
-ExecStart=/bin/su - vagrant /bin/ssh -N redshift-dev
+User=vagrant
+ExecStart=/bin/ssh -N redshift-dev
 Restart=on-abort
 
 [Install]

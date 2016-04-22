@@ -28,6 +28,7 @@ It generally requires agent forwarding to work from host, to vagrant host (vagra
 
 we tried using the fix suggested here https://github.com/mitchellh/vagrant/issues/1303
 worth considering this option - https://surniaulula.com/2012/12/10/autossh-startup-script-for-multiple-tunnels/
+http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions/230872#230872
 
 so the workaround currently is to run the following once you see the authssh errors in /var/log/messages:
 

@@ -27,6 +27,11 @@ Problem regarding tunnels:
 It generally requires agent forwarding to work from host, to vagrant host (vagrant user) to root user in the vagrant host. However in order for that to work we need the SSH_AUTH_SOCK variable to be passed on. This is only done by setting it up on /etc/sudoers. The time saltstack runs initially this is not done, so we will end up with the tunnel not being properly established the first time around. This would need to be triggered later on in order for this to work. The code can be found in ssh_config/tunnels.sls, and we would need to clear the temporary file /tmp/redshift_tunnel* and remove the autossh process in order to do this properly.
 
 we tried using the fix suggested here https://github.com/mitchellh/vagrant/issues/1303
+worth considering this option - https://surniaulula.com/2012/12/10/autossh-startup-script-for-multiple-tunnels/
+
+so the workaround currently is to run the following once you see the authssh errors in /var/log/messages:
+
+sudo su vagrant -c 'autossh -N redshift-dev -M 10001'
 
 
 References:
